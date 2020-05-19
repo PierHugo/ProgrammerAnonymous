@@ -15,12 +15,12 @@
 <h:body>
     <f:view>
         <h:form>
-            <h:outputLabel for="greeter" value="Please tell me your name:"/>
-            <h:inputText id="greeter" value="#{greeter.name}">
+            <h:outputLabel for="hello" value="What is your name: "/>
+            <h:inputText id="hello" value="#{hello.name}">
                 <f:ajax event="keyup" render="text"/>
             </h:inputText>
         </h:form>
-        <h:outputText id="text" value="${greeter.response}"/>
+        <h:outputText id="text" value="${hello.response}"/>
     </f:view>
 </h:body>
 </html>
