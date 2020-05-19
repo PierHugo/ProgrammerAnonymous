@@ -12,6 +12,7 @@ Desktop.ini
 ##
 # maven ignore
 
+out/
 target/
 
 ##
