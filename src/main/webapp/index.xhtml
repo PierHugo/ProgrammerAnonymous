@@ -5,22 +5,34 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-<ui:insert name="metadata"/>
-<h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>
-        JSF 2.0 Hello World
-    </title>
-</h:head>
-<h:body>
-    <f:view>
+    <ui:insert name="metadata"/>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>
+            User - JSF 2.0 Hello World
+        </title>
+    </h:head>
+    <h:body>
         <h:form>
-            <h:outputLabel for="hello" value="What is your name: "/>
-            <h:inputText id="hello" value="#{hello.name}">
-                <f:ajax event="keyup" render="text"/>
-            </h:inputText>
+                <h:outputLabel for="username">Username: * </h:outputLabel><br/>
+                <h:inputText id="username" value="#{register.user.username}" required="true" /> <br/><br/>
+
+                <h:outputLabel for="first_name">First name: *</h:outputLabel><br/>
+                <h:inputText id="first_name" value="#{register.user.firstName}" required="true"/> <br/><br/>
+
+                <h:outputLabel for="last_name">Last name: *</h:outputLabel><br/>
+                <h:inputText id="last_name" value="#{register.user.lastName}" required="true"/> <br/><br/>
+
+                <h:outputLabel for="password">Password: *</h:outputLabel><br/>
+                <h:inputSecret id="password" value="#{register.user.password}" required="true"/> <br/><br/>
+
+                <h:outputLabel for="age">Age: *</h:outputLabel><br/>
+                <h:inputText id="age" value="#{register.user.age}" required="true" maxlength="3"/> <br/><br/>
+
+                <h:outputLabel for="city">City: *</h:outputLabel><br/>
+                <h:inputText id="city" value="#{register.user.city}" required="true"/><br/><br/>
+
+                <h:commandButton value="Register" action="#{register.createUser}"/> <h:messages globalOnly="true"/> <br/>
         </h:form>
-        <h:outputText id="text" value="${hello.response}"/>
-    </f:view>
-</h:body>
+    </h:body>
 </html>

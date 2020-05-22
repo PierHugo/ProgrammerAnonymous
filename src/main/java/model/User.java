@@ -1,5 +1,7 @@
 package model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +9,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
+@ManagedBean(name = "userBean")
+@ViewScoped
 public class User
 {
     @Id

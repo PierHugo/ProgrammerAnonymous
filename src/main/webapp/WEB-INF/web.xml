@@ -20,6 +20,11 @@
         <param-value>Production</param-value>
         <!--param-value>Development</param-value-->
     </context-param>
+    <!-- Transform String "" to null -->
+    <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
     <!-- [jetty] does not initialize myfaces correctly for some reason -->
     <listener>
