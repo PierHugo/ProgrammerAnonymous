@@ -11,25 +11,33 @@ import java.io.Serializable;
 
 @ManagedBean
 @RequestScoped
-public class Register implements Serializable {
+public class Register implements Serializable
+{
     private static final long serialVersionUID = 1L;
-    private User user;
+    private final User user;
 
-    public Register(){
+    public Register()
+    {
         user = new User();
     }
 
-    public void createUser(){
-        boolean isCreate = Controller.getUserDAO().saveOrUpdate(user);
+    public void createUser()
+    {
+        Controller con = new Controller();
 
-        if(isCreate) {
+        System.out.println(con.getUserDAO());
+        boolean isCreate = con.getUserDAO().saveOrUpdate(user);
+
+        if (isCreate)
+        {
             System.out.println("Usertest: " + user.getUsername() + user.getFirstName() + user.getLastName() + user.getPassword() + user.getAge() + user.getCity());
             FacesMessage confirm = new FacesMessage("Inscription valide !");
             FacesContext.getCurrentInstance().addMessage(null, confirm);
         }
     }
 
-    public User getUser(){
+    public User getUser()
+    {
         return user;
     }
 }

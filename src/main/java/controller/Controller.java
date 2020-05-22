@@ -14,10 +14,10 @@ public class Controller
     private static Session session;
     private static Transaction transaction;
 
-    private static UserDAO userDAO;
-    private static CommentDAO commentDAO;
+    private final UserDAO userDAO;
+    private final CommentDAO commentDAO;
 
-    private Controller()
+    public Controller()
     {
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();
@@ -61,12 +61,12 @@ public class Controller
         return transaction;
     }
 
-    public static UserDAO getUserDAO()
+    public UserDAO getUserDAO()
     {
         return userDAO;
     }
 
-    public static CommentDAO getCommentDAO()
+    public CommentDAO getCommentDAO()
     {
         return commentDAO;
     }
