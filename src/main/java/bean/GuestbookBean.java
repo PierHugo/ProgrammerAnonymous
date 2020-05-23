@@ -16,10 +16,12 @@ import java.util.List;
 public class GuestbookBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private List<Comment> comments;
+    private List<Comment> topcom;
 
     public GuestbookBean(){
         Controller con = new Controller();
         this.comments = con.getCommentDAO().findAll();
+        this.topcom = con.getCommentDAO().findTopComment();
     }
 
     public void addLike(String author){
@@ -40,5 +42,13 @@ public class GuestbookBean implements Serializable {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Comment> getTopcom() {
+        return topcom;
+    }
+
+    public void setTopcom(List<Comment> topcom) {
+        this.topcom = topcom;
     }
 }

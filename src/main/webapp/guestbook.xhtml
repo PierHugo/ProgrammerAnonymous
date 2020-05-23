@@ -16,6 +16,19 @@
 </h:head>
     <h:body>
         <!-- TODO: Top com -->
+        <fieldset>
+            <legend>Top com</legend>
+            <ui:repeat size="2" value="#{guestbookBean.topcom}" var="topcom">
+                <fieldset>
+                <legend>#{topcom.author}</legend>
+                <p>#{topcom.comment}</p>
+                <p>
+                    Likes : #{topcom.likes}<br/>
+                    Published on #{topcom.commentDate}
+                </p>
+                </fieldset>
+            </ui:repeat>
+        </fieldset>
 
         <fieldset>
             <legend>Post a comment: (popup ? ph si t'es chaud)</legend>
