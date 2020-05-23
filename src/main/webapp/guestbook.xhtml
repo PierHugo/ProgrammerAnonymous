@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:insert name="metadata"/>
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>
+        Guestbook
+    </title>
+    <ui:include src="header.xhtml"></ui:include>
+</h:head>
+    <h:body>
+        <!-- TODO: Top com -->
+        <fieldset>
+            <legend>Top com</legend>
+            <ui:repeat size="2" value="#{guestbookBean.topcom}" var="topcom">
+                <fieldset>
+                <legend>#{topcom.author}</legend>
+                <p>#{topcom.comment}</p>
+                <p>
+                    Likes : #{topcom.likes}<br/>
+                    Published on #{topcom.commentDate}
+                </p>
+                </fieldset>
+            </ui:repeat>
+        </fieldset>
+
+        <fieldset>
+            <legend>Post a comment: (popup ? ph si t'es chaud)</legend>
+            <h:form id="published">
+                <h:outputLabel for="author">Username:</h:outputLabel><br/>
+                <h:inputText id="author" value="#{postcommentBean.comment.author}" required="true"/><br/>
+
+                <h:outputLabel for="comment">Yout comment:</h:outputLabel><br/>
+                <h:inputTextarea id="comment" value="#{postcommentBean.comment.comment}" required="true"/><br/><br/>
+
+                <h:commandButton value="Published your comment !" action="#{postcommentBean.addComment}"/>
+
+            </h:form>
+        </fieldset>
+
+        <!-- Com View -->
+        <ui:repeat value="#{guestbookBean.comments}" var="comment">
+            <fieldset>
+                <legend>#{comment.author}</legend>
+                <p>#{comment.comment}</p>
+                <p>
+                    Likes : #{comment.likes}<br/>
+                    Published on #{comment.commentDate}
+                </p>
+                <!-- TODO : Likes -->
+
+                <h:form id="like">
+                    <h:commandButton value="Like" action="#{guestbookBean.addLike(comment.author)}"/>
+                </h:form>
+
+
+            </fieldset>
+        </ui:repeat>
+    </h:body>
+<ui:include src="footer.xhtml"></ui:include>
+</html>

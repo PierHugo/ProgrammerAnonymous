@@ -17,7 +17,7 @@ public class Controller
     private final MemberDAO memberDAO;
     private final CommentDAO commentDAO;
 
-    private Controller()
+    public Controller()
     {
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();

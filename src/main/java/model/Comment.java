@@ -1,13 +1,17 @@
 package model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "comment")
+@ManagedBean(name = "commentBean")
+@ViewScoped
 public class Comment
 {
     @Id
@@ -18,7 +22,7 @@ public class Comment
     private String comment;
 
     @Column(name = "comment_date")
-    private LocalDate commentDate;
+    private String commentDate;
 
     @Column(name = "likes")
     private int likes;
@@ -43,12 +47,12 @@ public class Comment
         this.comment = comment;
     }
 
-    public LocalDate getCommentDate()
+    public String getCommentDate()
     {
         return commentDate;
     }
 
-    public void setCommentDate(LocalDate commentDate)
+    public void setCommentDate(String commentDate)
     {
         this.commentDate = commentDate;
     }

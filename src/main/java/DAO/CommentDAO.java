@@ -5,6 +5,7 @@ import controller.Controller;
 import model.Comment;
 
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CommentDAO implements DAOInterface<Comment>
@@ -20,6 +21,20 @@ public class CommentDAO implements DAOInterface<Comment>
             return null;
         else
             return comments.get(0);
+    }
+
+    public List<Comment> findTopComment()
+    {
+        Controller.beginTransaction();
+        TypedQuery<Comment> query = Controller.getSession().createQuery("FROM Comment ORDER BY likes DESC", Comment.class);
+        List<Comment> topcomment = query.getResultList();
+        Controller.commitTransaction();
+
+
+        if (topcomment.size() == 0)
+            return null;
+        else
+            return topcomment;
     }
 
     public boolean delete(Comment entity)
@@ -42,6 +57,7 @@ public class CommentDAO implements DAOInterface<Comment>
     {
         try
         {
+            Controller.beginTransaction();
             Controller.getSession().saveOrUpdate(entity);
             Controller.commitTransaction();
             return true;
@@ -59,5 +75,4 @@ public class CommentDAO implements DAOInterface<Comment>
         Controller.commitTransaction();
         return comments;
     }
-
 }
