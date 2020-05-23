@@ -5,7 +5,6 @@ import controller.Controller;
 import model.Comment;
 
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommentDAO implements DAOInterface<Comment>

@@ -3,21 +3,34 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:h="http://java.sun.com/jsf/html">
 <ui:insert name="metadata"/>
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    <link rel="stylesheet" href="css/custom.css"></link>
 </h:head>
 <h:body>
-    <fieldset>
-        <legend>Header</legend>
-        <h:button outcome="/welcome.xhtml" value="Accueil"/>
-        <h:button outcome="/guestbook.xhtml" value="GuestBook"/>
-        <h:button outcome="/register.xhtml" value="Devenir membre !"/>
-    </fieldset>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo" style="margin-left: 1rem">Programmer Anonymous</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/home.xhtml">Home</a>
+                    </li>
+                    <li>
+                        <a href="/guestbook.xhtml">Guestbook</a>
+                    </li>
+                    <li>
+                        <a href="/register.xhtml">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 </h:body>
 </html>

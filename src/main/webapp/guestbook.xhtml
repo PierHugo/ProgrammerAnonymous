@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+>
 <ui:insert name="metadata"/>
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -14,54 +13,90 @@
     </title>
     <ui:include src="header.xhtml"></ui:include>
 </h:head>
-    <h:body>
-        <!-- TODO: Top com -->
-        <fieldset>
-            <legend>Top com</legend>
+<h:body>
+
+    <div class="heading text-center pt-4">
+        <h3 class="card-title">Guestbook</h3>
+    </div>
+
+    <div class="container" id="addcommentcontainer">
+        <div class="heading">
+            <h4>Add Comment</h4>
+        </div>
+        <h:form id="comment">
+            <div class="row">
+                <div class="input-field">
+                    <h:inputText id="author" value="#{postcommentBean.comment.author}" required="true" type="text"
+                                 name="author" class="validate"/>
+                    <label for="author">Author</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <h:inputText id="comment" value="#{postcommentBean.comment.comment}" required="true" type="text"
+                                 name="comment" class="validate"/>
+                    <label for="comment">Comment</label>
+                </div>
+            </div>
+            <div class="row">
+                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="comment"
+                                 action="#{postcommentBean.addComment}">
+                </h:commandButton>
+            </div>
+        </h:form>
+    </div>
+
+    <div class="container" id="listtopcommentcontainer">
+        <ul class="collection with-header">
+            <li class="collection-header">
+                <h4>Top Comments</h4>
+            </li>
             <ui:repeat size="2" value="#{guestbookBean.topcom}" var="topcom">
-                <fieldset>
-                <legend>#{topcom.author}</legend>
-                <p>#{topcom.comment}</p>
-                <p>
-                    Likes : #{topcom.likes}<br/>
-                    Published on #{topcom.commentDate}
-                </p>
-                </fieldset>
+                <li class="collection-item">
+                    <author>
+                        #{topcom.author}
+                    </author>
+                    <date>
+                        #{topcom.commentDate}
+                    </date>
+                    <comment>
+                        #{topcom.comment}
+                    </comment>
+                    <like>
+                        #{topcom.likes}
+                    </like>
+                </li>
             </ui:repeat>
-        </fieldset>
+        </ul>
+    </div>
 
-        <fieldset>
-            <legend>Post a comment: (popup ? ph si t'es chaud)</legend>
-            <h:form id="published">
-                <h:outputLabel for="author">Username:</h:outputLabel><br/>
-                <h:inputText id="author" value="#{postcommentBean.comment.author}" required="true"/><br/>
+    <div class="container" id="listcommentcontainer">
+        <ul class="collection with-header">
+            <li class="collection-header">
+                <h4>Comments</h4>
+            </li>
+            <ui:repeat value="#{guestbookBean.comments}" var="comment">
+                <li class="collection-item">
+                    <author>
+                        #{comment.author}
+                    </author>
+                    <date>
+                        #{comment.commentDate}
+                    </date>
+                    <comment>
+                        #{comment.comment}
+                    </comment>
+                    <like>
+                        #{comment.likes}
+                    </like>
+                    <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Like"
+                                     action="#{guestbookBean.addLike(comment.author)}">
+                    </h:commandButton>
+                </li>
+            </ui:repeat>
+        </ul>
+    </div>
 
-                <h:outputLabel for="comment">Yout comment:</h:outputLabel><br/>
-                <h:inputTextarea id="comment" value="#{postcommentBean.comment.comment}" required="true"/><br/><br/>
-
-                <h:commandButton value="Published your comment !" action="#{postcommentBean.addComment}"/>
-
-            </h:form>
-        </fieldset>
-
-        <!-- Com View -->
-        <ui:repeat value="#{guestbookBean.comments}" var="comment">
-            <fieldset>
-                <legend>#{comment.author}</legend>
-                <p>#{comment.comment}</p>
-                <p>
-                    Likes : #{comment.likes}<br/>
-                    Published on #{comment.commentDate}
-                </p>
-                <!-- TODO : Likes -->
-
-                <h:form id="like">
-                    <h:commandButton value="Like" action="#{guestbookBean.addLike(comment.author)}"/>
-                </h:form>
-
-
-            </fieldset>
-        </ui:repeat>
-    </h:body>
+</h:body>
 <ui:include src="footer.xhtml"></ui:include>
 </html>

@@ -10,29 +10,36 @@ import java.io.Serializable;
 
 @ManagedBean(name = "registerBean")
 @RequestScoped
-public class RegisterBean implements Serializable {
+public class RegisterBean implements Serializable
+{
     private static final long serialVersionUID = 1L;
     private Member member;
 
-    public RegisterBean(){
+    public RegisterBean()
+    {
         this.member = new Member();
     }
 
-    public void addMember(){
+    public void addMember()
+    {
         this.member.setPassword(DigestUtils.sha256Hex(this.member.getPassword()));
+
         Controller con = new Controller();
         boolean isCreate = con.getMemberDAO().saveOrUpdate(this.member);
 
-        if(!isCreate){
+        if (!isCreate)
+        {
             // TODO: message erreur
         }
     }
 
-    public Member getMember() {
+    public Member getMember()
+    {
         return member;
     }
 
-    public void setMember(Member member) {
+    public void setMember(Member member)
+    {
         this.member = member;
     }
 }

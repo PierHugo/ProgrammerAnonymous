@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+div.footer-copyright {
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+}
+
+.container#maincontainer {
+    width: 65% !important;
+    margin: 2.5rem auto !important;;
+}
+
+.container#membercontainer {
+    width: 50% !important;
+    margin: 2.5rem auto !important;;
+}
+
+.container#listcommentcontainer {
+    width: 55% !important;
+    margin: 2.5rem auto !important;;
+}
+
+.container#listtopcommentcontainer {
+    width: 55% !important;
+    margin: 2.5rem auto !important;;
+}
+
+.container#addcommentcontainer {
+    width: 50% !important;
+    margin: 2.5rem auto !important;;
+}
+
+.container#registercontainer {
+    width: 60% !important;
+    margin: 2.5rem auto !important;;
+}
+
+input.waves-button-input {
+    color: white;
+    padding-top: 0.70rem;
+}
+
+author {
+    margin: 0.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+date {
+    margin: 0.5rem;
+    float: left;
+    color: darkgrey;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+like {
+    margin: 0.5rem;
+    float: right;
+    color: darkgrey;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+comment {
+    margin: 0.5rem;
+    color: grey;
+    display: block;
+}
+
+li.collection-item {
+    margin: 0.5rem auto !important;;
+}
