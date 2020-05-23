@@ -4,23 +4,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <ui:insert name="metadata"/>
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>
-        JSF 2.0 Hello World
-    </title>
+
+
 </h:head>
 <h:body>
-    <f:view>
-        <h:form>
-            <h:outputLabel for="hello" value="What is your name: "/>
-            <h:inputText id="hello" value="#{hello.name}">
-                <f:ajax event="keyup" render="text"/>
-            </h:inputText>
-        </h:form>
-        <h:outputText id="text" value="${hello.response}"/>
-    </f:view>
+    <fieldset>
+        <legend>Header</legend>
+        <h:button outcome="/welcome.xhtml" value="Accueil"/>
+        <h:button outcome="/guestbook.xhtml" value="GuestBook"/>
+        <h:button outcome="/register.xhtml" value="Devenir membre !"/>
+    </fieldset>
 </h:body>
 </html>

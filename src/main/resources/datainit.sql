@@ -11,8 +11,8 @@ create table comment
 (
     author       varchar(255) not null primary key,
     comment      varchar(255),
-    comment_date date,
-    likes        bigint
+    comment_date varchar(20),
+    likes        bigint default 0
 ) engine = InnoDB;
 
 INSERT INTO member
@@ -21,8 +21,3 @@ VALUES ('member0', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d15
 INSERT INTO member
 VALUES ('member1', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'member1', 'member1', 'Tours');
 -- password : password
-
-INSERT INTO comment
-VALUES ('author0', 'com0', NOW(), 5);
-INSERT INTO comment
-VALUES ('author1', 'com1', NOW(), 10);
