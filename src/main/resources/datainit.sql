@@ -1,32 +1,28 @@
-create table comment
-(
-    id            bigint       not null auto_increment primary key,
-    comment       varchar(255),
-    comment_date  date,
-    user_username varchar(255) not null
-) engine = InnoDB;
-
-create table user
+create table member
 (
     username   varchar(255) not null primary key,
+    password   varchar(255) not null,
     first_name varchar(255) not null,
     last_name  varchar(255) not null,
-    password   varchar(255) not null,
-    age        varchar(255) not null,
     city       varchar(255) not null
 ) engine = InnoDB;
 
-ALTER TABLE comment
-    ADD CONSTRAINT FOREIGN KEY (user_username) REFERENCES user (username);
+create table comment
+(
+    author       varchar(255) not null primary key,
+    comment      varchar(255),
+    comment_date date,
+    likes        bigint
+) engine = InnoDB;
 
-INSERT INTO user
-VALUES ('user0', 'user0', 'user0', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 20, 'Paris');
+INSERT INTO member
+VALUES ('member0', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'member0', 'member0', 'Paris');
 -- password : password
-INSERT INTO user
-VALUES ('user1', 'user1', 'user1', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 25, 'Tours');
+INSERT INTO member
+VALUES ('member1', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'member1', 'member1', 'Tours');
 -- password : password
 
 INSERT INTO comment
-VALUES (0, 'com0', NOW(), 'user0');
+VALUES ('author0', 'com0', NOW(), 5);
 INSERT INTO comment
-VALUES (0, 'com1', NOW(), 'user1');
+VALUES ('author1', 'com1', NOW(), 10);

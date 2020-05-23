@@ -1,17 +1,24 @@
 package model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User
+@Table(name = "member")
+@ManagedBean(name = "memberBean")
+@ViewScoped
+public class Member
 {
     @Id
     @Column(name = "username", nullable = false, unique = true)
     private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -19,34 +26,8 @@ public class User
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "password", nullable = false)
-    private String password;
-
-    @Column(name = "age", nullable = false)
-    private String age;
-
     @Column(name = "city", nullable = false)
     private String city;
-
-    public String getFirstName()
-    {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
-    }
-
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
-    }
 
     public String getUsername()
     {
@@ -68,14 +49,24 @@ public class User
         this.password = password;
     }
 
-    public String getAge()
+    public String getFirstName()
     {
-        return age;
+        return firstName;
     }
 
-    public void setAge(String age)
+    public void setFirstName(String firstName)
     {
-        this.age = age;
+        this.firstName = firstName;
+    }
+
+    public String getLastName()
+    {
+        return lastName;
+    }
+
+    public void setLastName(String lastName)
+    {
+        this.lastName = lastName;
     }
 
     public String getCity()

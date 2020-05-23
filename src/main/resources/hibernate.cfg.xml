@@ -15,8 +15,8 @@
         <!--         db schema will be updated if needed-->
         <!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
 
-        <!--TODO : ajouter classe-->
-        <!--        <mapping class="model.CLASS"/>-->
+        <mapping class="model.Comment"/>
+        <mapping class="model.Member"/>
 
     </session-factory>
 </hibernate-configuration>

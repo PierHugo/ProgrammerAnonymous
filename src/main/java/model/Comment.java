@@ -1,6 +1,9 @@
 package model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
@@ -8,8 +11,8 @@ import java.time.LocalDate;
 public class Comment
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "author")
+    private String author;
 
     @Column(name = "comment")
     private String comment;
@@ -17,18 +20,17 @@ public class Comment
     @Column(name = "comment_date")
     private LocalDate commentDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_username")
-    private User user;
+    @Column(name = "likes")
+    private int likes;
 
-    public long getId()
+    public String getAuthor()
     {
-        return id;
+        return author;
     }
 
-    public void setId(long id)
+    public void setAuthor(String author)
     {
-        this.id = id;
+        this.author = author;
     }
 
     public String getComment()
@@ -51,13 +53,13 @@ public class Comment
         this.commentDate = commentDate;
     }
 
-    public User getUser()
+    public int getLikes()
     {
-        return user;
+        return likes;
     }
 
-    public void setUser(User user)
+    public void setLikes(int likes)
     {
-        this.user = user;
+        this.likes = likes;
     }
 }

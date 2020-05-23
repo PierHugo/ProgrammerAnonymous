@@ -12,7 +12,7 @@ public class CommentDAO implements DAOInterface<Comment>
     public Comment findByUsername(String username)
     {
         Controller.beginTransaction();
-        TypedQuery<Comment> query = Controller.getSession().createQuery("FROM Comment WHERE user_username = :username", Comment.class);
+        TypedQuery<Comment> query = Controller.getSession().createQuery("FROM Comment WHERE author = :username", Comment.class);
         query.setParameter("username", username);
         List<Comment> comments = query.getResultList();
         Controller.commitTransaction();

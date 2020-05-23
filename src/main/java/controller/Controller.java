@@ -1,7 +1,7 @@
 package controller;
 
 import DAO.CommentDAO;
-import DAO.UserDAO;
+import DAO.MemberDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,8 +14,8 @@ public class Controller
     private static Session session;
     private static Transaction transaction;
 
-    private static UserDAO userDAO;
-    private static CommentDAO commentDAO;
+    private final MemberDAO memberDAO;
+    private final CommentDAO commentDAO;
 
     private Controller()
     {
@@ -24,7 +24,7 @@ public class Controller
         session = sessionFactory.openSession();
         transaction = null;
 
-        userDAO = new UserDAO();
+        memberDAO = new MemberDAO();
         commentDAO = new CommentDAO();
     }
 
@@ -61,12 +61,12 @@ public class Controller
         return transaction;
     }
 
-    public static UserDAO getUserDAO()
+    public MemberDAO getMemberDAO()
     {
-        return userDAO;
+        return memberDAO;
     }
 
-    public static CommentDAO getCommentDAO()
+    public CommentDAO getCommentDAO()
     {
         return commentDAO;
     }
