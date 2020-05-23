@@ -41,7 +41,12 @@
                     Published on #{comment.commentDate}
                 </p>
                 <!-- TODO : Likes -->
-                <h:button id="like" value="Like"/>
+
+                <h:form id="like">
+                    <h:commandButton value="Like" action="#{guestbookBean.addLike(comment.author)}"/>
+                </h:form>
+
+
             </fieldset>
         </ui:repeat>
     </h:body>

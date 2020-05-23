@@ -42,6 +42,7 @@ public class CommentDAO implements DAOInterface<Comment>
     {
         try
         {
+            Controller.beginTransaction();
             Controller.getSession().saveOrUpdate(entity);
             Controller.commitTransaction();
             return true;
@@ -59,5 +60,4 @@ public class CommentDAO implements DAOInterface<Comment>
         Controller.commitTransaction();
         return comments;
     }
-
 }
