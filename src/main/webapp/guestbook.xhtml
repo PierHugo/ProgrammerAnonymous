@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:insert name="metadata"/>
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>
+        GuestBook
+    </title>
+    <ui:include src="header.xhtml"></ui:include>
+</h:head>
+    <h:body>
+        <!-- Add comment  -->
+        <h:form>
+            <fieldset>
+                <legend>Post a comment</legend>
+
+                <h:outputLabel for="username">Username</h:outputLabel>
+                <h:inputText id="username" required="true" value="#{postcommentBean.comment.user}"/><br/>
+
+                <h:outputLabel for="comment">Comment</h:outputLabel>
+                <h:inputTextarea id="comment" required="true" value="#{postcommentBean.comment.comment}"/><br/>
+
+                <h:commandButton value="Post" action="#{postcommentBean.addComment}"/> <h:messages globalOnly="true"/> <br/>
+            </fieldset>
+        </h:form>
+        <!-- Top comment -->
+
+
+        <!-- Comment -->
+        <h1>Top comment</h1>
+        <ui:repeat value="#{guestbookBean.comments}" var="comment">
+            <fieldset>
+                <legend> #{comment.user} </legend>
+                <p>#{comment.comment}</p>
+                <p>Likes: #{comment.like} <br/>
+                Published on #{comment.commentDate}</p>
+
+            </fieldset>
+        </ui:repeat>
+    </h:body>
+<ui:include src="footer.xhtml"></ui:include>
+</html>

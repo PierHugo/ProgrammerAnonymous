@@ -27,7 +27,7 @@ public class User
     private String password;
 
     @Column(name = "age", nullable = false)
-    private String age;
+    private int age;
 
     @Column(name = "city", nullable = false)
     private String city;
@@ -72,12 +72,12 @@ public class User
         this.password = password;
     }
 
-    public String getAge()
+    public int getAge()
     {
         return age;
     }
 
-    public void setAge(String age)
+    public void setAge(int age)
     {
         this.age = age;
     }

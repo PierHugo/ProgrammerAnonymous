@@ -1,10 +1,14 @@
 package model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "comment")
+@ManagedBean(name = "commentBean")
+@ViewScoped
 public class Comment
 {
     @Id
@@ -17,9 +21,11 @@ public class Comment
     @Column(name = "comment_date")
     private LocalDate commentDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_username")
-    private User user;
+    @Column(name = "comment_username")
+    private String username;
+
+    @Column(name = "comment_like")
+    private int like;
 
     public long getId()
     {
@@ -51,13 +57,17 @@ public class Comment
         this.commentDate = commentDate;
     }
 
-    public User getUser()
+    public String getUser()
     {
-        return user;
+        return username;
     }
 
-    public void setUser(User user)
+    public void setUser(String username)
     {
-        this.user = user;
+        this.username = username;
     }
+
+    public int getLike(){ return like; }
+
+    public void setLike(int like) { this.like = like; }
 }

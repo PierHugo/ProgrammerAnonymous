@@ -9,14 +9,14 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
-@ManagedBean
+@ManagedBean(name = "registerBean")
 @RequestScoped
-public class Register implements Serializable
+public class RegisterBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private final User user;
+    private User user;
 
-    public Register()
+    public RegisterBean()
     {
         user = new User();
     }
@@ -25,15 +25,11 @@ public class Register implements Serializable
     {
         Controller con = new Controller();
 
-        System.out.println(con.getUserDAO());
-        boolean isCreate = con.getUserDAO().saveOrUpdate(user);
 
-        if (isCreate)
-        {
-            System.out.println("Usertest: " + user.getUsername() + user.getFirstName() + user.getLastName() + user.getPassword() + user.getAge() + user.getCity());
-            FacesMessage confirm = new FacesMessage("Inscription valide !");
-            FacesContext.getCurrentInstance().addMessage(null, confirm);
-        }
+        boolean isCreate = con.getUserDAO().saveOrUpdate(user);
+        FacesMessage confirm = new FacesMessage("Inscription valide !");
+        FacesContext.getCurrentInstance().addMessage(null, confirm);
+
     }
 
     public User getUser()

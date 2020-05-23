@@ -7,7 +7,7 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/tp2?serverTimezone=UTC</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
+        <property name="connection.password"></property>
         <property name="connection.pool_size">10</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="show_sql">true</property>
@@ -15,8 +15,7 @@
         <!--         db schema will be updated if needed-->
         <!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
 
-        <!--TODO : ajouter classe-->
-        <!--        <mapping class="model.CLASS"/>-->
         <mapping class="model.User"/>
+        <mapping class="model.Comment"/>
     </session-factory>
 </hibernate-configuration>

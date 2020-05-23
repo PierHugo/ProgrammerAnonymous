@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:insert name="metadata"/>
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>
+        User Register
+    </title>
+    <ui:include src="header.xhtml"></ui:include>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel for="username">Username: * </h:outputLabel><br/>
+        <h:inputText id="username" value="#{registerBean.user.username}" required="true" /> <br/><br/>
+
+        <h:outputLabel for="first_name">First name: *</h:outputLabel><br/>
+        <h:inputText id="first_name" value="#{registerBean.user.firstName}" required="true"/> <br/><br/>
+
+        <h:outputLabel for="last_name">Last name: *</h:outputLabel><br/>
+        <h:inputText id="last_name" value="#{registerBean.user.lastName}" required="true"/> <br/><br/>
+
+        <h:outputLabel for="password">Password: *</h:outputLabel><br/>
+        <h:inputSecret id="password" value="#{registerBean.user.password}" required="true"/> <br/><br/>
+
+        <h:outputLabel for="age">Age: *</h:outputLabel><br/>
+        <h:inputText pt:type="number" id="age" value="#{registerBean.user.age}" required="true" maxlength="3"/> <br/><br/>
+
+        <h:outputLabel for="city">City: *</h:outputLabel><br/>
+        <h:inputText id="city" value="#{registerBean.user.city}" required="true"/><br/><br/>
+
+        <h:commandButton value="Register" action="#{registerBean.createUser}"/> <h:messages globalOnly="true"/> <br/>
+    </h:form>
+</h:body>
+<ui:include src="footer.xhtml"></ui:include>
+</html>
