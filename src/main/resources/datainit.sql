@@ -30,3 +30,7 @@ INSERT INTO comment
 VALUES ('author1',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget eleifend urna. Pellentesque ex eros, condimentum ut luctus eget, mattis eget nisl. Morbi elementum sit amet nisl a venenatis. Nam eu eros sit amet nulla suscipit rutrum. Mauris ornare eu quam vel sagittis. Maecenas eu justo neque. Sed mattis mi eu erat tincidunt molestie.',
         now(), 5);
+INSERT INTO comment
+VALUES ('author2',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget eleifend urna. Pellentesque ex eros, condimentum ut luctus eget, mattis eget nisl. Morbi elementum sit amet nisl a venenatis. Nam eu eros sit amet nulla suscipit rutrum. Mauris ornare eu quam vel sagittis. Maecenas eu justo neque. Sed mattis mi eu erat tincidunt molestie.',
+        now(), 2);
