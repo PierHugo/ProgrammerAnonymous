@@ -23,23 +23,21 @@
         <div class="heading">
             <h4>Add Comment</h4>
         </div>
-        <h:form id="comment">
+        <h:form id="addcommentform">
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="author" value="#{postcommentBean.comment.author}" required="true" type="text"
-                                 name="author" class="validate"/>
-                    <label for="author">Author</label>
+                    <h:outputLabel for="author">Author</h:outputLabel><br/>
+                    <h:inputText id="author" value="#{postcommentBean.comment.author}" required="true"/>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="comment" value="#{postcommentBean.comment.comment}" required="true" type="text"
-                                 name="comment" class="validate"/>
-                    <label for="comment">Comment</label>
+                    <h:outputLabel for="comment">Comment</h:outputLabel><br/>
+                    <h:inputText id="comment" value="#{postcommentBean.comment.comment}" required="true"/>
                 </div>
             </div>
             <div class="row">
-                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="comment"
+                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Add comment"
                                  action="#{postcommentBean.addComment}">
                 </h:commandButton>
             </div>

@@ -18,44 +18,39 @@
         <h3 class="card-title">Register</h3>
     </div>
     <div class="container" id="registercontainer">
-        <h:form id="register">
+        <h:form id="registerform">
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="username" value="#{registerBean.member.username}" required="true" name="username"
-                                 class="validate" type="text"/>
-                    <label for="username">Username</label>
+                    <h:outputLabel for="username">Username</h:outputLabel><br/>
+                    <h:inputText id="username" value="#{registerBean.member.username}" required="true"/>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="password" value="#{registerBean.member.password}" required="true" name="password"
-                                 class="validate" type="password"/>
-                    <label for="password">Password</label>
+                    <h:outputLabel for="password">Password</h:outputLabel><br/>
+                    <h:inputSecret id="password" value="#{registerBean.member.password}" required="true"/>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="firstname" value="#{registerBean.member.firstName}" required="true"
-                                 name="firstname" class="validate" type="text"/>
-                    <label for="firstname">First name</label>
+                    <h:outputLabel for="firstname">First Name</h:outputLabel><br/>
+                    <h:inputText id="firstname" value="#{registerBean.member.firstName}" required="true"/>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="lastname" value="#{registerBean.member.lastName}" required="true" name="lastname"
-                                 class="validate" type="text"/>
-                    <label for="lastname">Last name</label>
+                    <h:outputLabel for="lastname">Last Name</h:outputLabel><br/>
+                    <h:inputText id="lastname" value="#{registerBean.member.lastName}" required="true"/>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <h:inputText id="city" value="#{registerBean.member.city}" required="true" name="city"
-                                 class="validate" type="text"/>
-                    <label for="city">City</label>
+                    <h:outputLabel for="city">City</h:outputLabel><br/>
+                    <h:inputText id="city" value="#{registerBean.member.city}" required="true"/>
                 </div>
             </div>
             <div class="row">
-                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="register"
+                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Register"
                                  action="#{registerBean.addMember}">
                 </h:commandButton>
             </div>

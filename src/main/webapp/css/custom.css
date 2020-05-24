@@ -49,20 +49,20 @@ div.footer-copyright {
 }
 
 input.waves-button-input {
-    color: white;
+    color: #ffffff;
     padding-top: 0.70rem;
 }
 
 .author {
     margin: 0.5rem;
-    color: black;
+    color: #000000;
     font-weight: bold;
     grid-area: author;
 }
 
 .date {
     margin: 0.5rem;
-    color: darkgrey;
+    color: #aaaaaa;
     font-weight: lighter;
     font-style: italic;
     grid-area: date;
@@ -70,8 +70,8 @@ input.waves-button-input {
 
 .like {
     margin: 0.5rem;
-    color: darkgrey;
-    font-weight: bold;
+    color: #333333;
+    font-weight: normal;
     font-style: italic;
     padding-top: 0.5rem;
     grid-area: like;
@@ -79,7 +79,7 @@ input.waves-button-input {
 
 .likebutton {
     margin: 0.5rem;
-    color: darkgrey;
+    color: #aaaaaa;
     font-weight: bold;
     font-style: italic;
     grid-area: likebutton;
@@ -87,7 +87,7 @@ input.waves-button-input {
 
 .comment {
     margin: 0.5rem;
-    color: grey;
+    color: #000000;
     display: block;
     grid-area: comment;
 }

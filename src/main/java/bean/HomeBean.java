@@ -26,7 +26,8 @@ public class HomeBean implements Serializable
         return members;
     }
 
-    public void setMembers(List<Member> member) {
+    public void setMembers(List<Member> member)
+    {
         this.members = member;
     }
 }

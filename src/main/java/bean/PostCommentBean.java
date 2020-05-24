@@ -33,7 +33,7 @@ public class PostCommentBean implements Serializable
 
         if (!isCreate)
         {
-            // TODO: Error message
+            // TODO: message erreur
         }
     }
 
