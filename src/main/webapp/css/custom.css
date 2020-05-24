@@ -8,6 +8,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 1;
 }
 
 div.footer-copyright {
@@ -50,7 +51,11 @@ div.footer-copyright {
 
 input.waves-button-input {
     color: #ffffff;
-    padding-top: 0.70rem;
+    padding: .70rem;
+}
+
+i.btn {
+    padding: 0 !important;
 }
 
 .author {
