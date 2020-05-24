@@ -53,32 +53,51 @@ input.waves-button-input {
     padding-top: 0.70rem;
 }
 
-author {
+.author {
     margin: 0.5rem;
     color: black;
     font-weight: bold;
+    grid-area: author;
 }
 
-date {
+.date {
     margin: 0.5rem;
-    float: left;
     color: darkgrey;
     font-weight: lighter;
     font-style: italic;
+    grid-area: date;
 }
 
-like {
+.like {
     margin: 0.5rem;
-    float: right;
     color: darkgrey;
-    font-weight: lighter;
+    font-weight: bold;
     font-style: italic;
+    padding-top: 0.5rem;
+    grid-area: like;
 }
 
-comment {
+.likebutton {
+    margin: 0.5rem;
+    color: darkgrey;
+    font-weight: bold;
+    font-style: italic;
+    grid-area: likebutton;
+}
+
+.comment {
     margin: 0.5rem;
     color: grey;
     display: block;
+    grid-area: comment;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr 2.8fr 0.6fr;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 1px 1px;
+    grid-template-areas: "author . . date" ". . comment ." "likebutton like . .";
 }
 
 li.collection-item {

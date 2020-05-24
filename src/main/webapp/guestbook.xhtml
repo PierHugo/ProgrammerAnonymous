@@ -53,18 +53,20 @@
             </li>
             <ui:repeat size="2" value="#{guestbookBean.topcom}" var="topcom">
                 <li class="collection-item">
-                    <author>
-                        #{topcom.author}
-                    </author>
-                    <date>
-                        #{topcom.commentDate}
-                    </date>
-                    <comment>
-                        #{topcom.comment}
-                    </comment>
-                    <like>
-                        #{topcom.likes}
-                    </like>
+                    <div class="grid-container">
+                        <div class="author">
+                            #{topcom.author}
+                        </div>
+                        <div class="date">
+                            #{topcom.commentDate}
+                        </div>
+                        <div class="comment">
+                            #{topcom.comment}
+                        </div>
+                        <div class="like">
+                            #{topcom.likes}
+                        </div>
+                    </div>
                 </li>
             </ui:repeat>
         </ul>
@@ -77,23 +79,27 @@
             </li>
             <ui:repeat value="#{guestbookBean.comments}" var="comment">
                 <li class="collection-item">
-                    <author>
-                        #{comment.author}
-                    </author>
-                    <date>
-                        #{comment.commentDate}
-                    </date>
-                    <comment>
-                        #{comment.comment}
-                    </comment>
-                    <like>
-                        #{comment.likes}
-                    </like>
-                    <h:form id="like">
-                        <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Like"
-                                         action="#{guestbookBean.addLike(comment.author)}">
-                        </h:commandButton>
-                    </h:form>
+                    <div class="grid-container">
+                        <div class="author">
+                            #{comment.author}
+                        </div>
+                        <div class="date">
+                            #{comment.commentDate}
+                        </div>
+                        <div class="comment">
+                            #{comment.comment}
+                        </div>
+                        <div class="like">
+                            #{comment.likes}
+                        </div>
+                        <div class="likebutton">
+                            <h:form id="like">
+                                <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Like"
+                                                 action="#{guestbookBean.addLike(comment.author)}">
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
                 </li>
             </ui:repeat>
         </ul>
