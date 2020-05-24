@@ -89,9 +89,11 @@
                     <like>
                         #{comment.likes}
                     </like>
-                    <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Like"
-                                     action="#{guestbookBean.addLike(comment.author)}">
-                    </h:commandButton>
+                    <h:form id="like">
+                        <h:commandButton class="btn waves-effect waves-light deep-orange darken-2" value="Like"
+                                         action="#{guestbookBean.addLike(comment.author)}">
+                        </h:commandButton>
+                    </h:form>
                 </li>
             </ui:repeat>
         </ul>
