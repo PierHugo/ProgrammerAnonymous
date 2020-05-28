@@ -3,8 +3,10 @@ package bean;
 import controller.Controller;
 import model.Comment;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
@@ -30,10 +32,12 @@ public class GuestbookBean implements Serializable
         tmpComment.setLikes(tmpComment.getLikes() + 1);
 
         boolean isCreate = con.getCommentDAO().saveOrUpdate(tmpComment);
+        this.comments = con.getCommentDAO().findAll();
 
         if (!isCreate)
         {
-            // TODO: message erreur
+            FacesMessage confirm = new FacesMessage("Veuillez rentré toutes les informations !");
+            FacesContext.getCurrentInstance().addMessage(null, confirm);
         }
     }
 
