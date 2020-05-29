@@ -33,6 +33,8 @@ public class GuestbookBean implements Serializable
 
         boolean isCreate = con.getCommentDAO().saveOrUpdate(tmpComment);
         this.comments = con.getCommentDAO().findAll();
+        this.topcom = con.getCommentDAO().findTopComment();
+
 
         if (!isCreate)
         {
