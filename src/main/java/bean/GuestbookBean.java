@@ -38,7 +38,7 @@ public class GuestbookBean implements Serializable
 
         if (!isCreate)
         {
-            FacesMessage confirm = new FacesMessage("Veuillez rentré toutes les informations !");
+            FacesMessage confirm = new FacesMessage("Veuillez rentrer toutes les informations !");
             FacesContext.getCurrentInstance().addMessage(null, confirm);
         }
     }
